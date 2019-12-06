@@ -34,19 +34,19 @@ namespace DeadmanRace
         private void FixedUpdate()
         {
             _activeController.Execute(UpdateType.Fixed);
-//        activeController.Cleanup(UpdateType.Fixed);
+            _activeController.Cleanup(UpdateType.Fixed);
         }
           
         private void Update()
         {
             _activeController.Execute(UpdateType.Update);
-//        activeController.Cleanup(UpdateType.Update);
+            _activeController.Cleanup(UpdateType.Update);
         }
 
         private void LateUpdate()
         {
             _activeController.Execute(UpdateType.Late);
-//        activeController.Cleanup(UpdateType.Update);
+            _activeController.Cleanup(UpdateType.Update);
         }
 
         private void OnDestroy()
@@ -63,7 +63,7 @@ namespace DeadmanRace
                 return;
             }
             _activeController.Execute(UpdateType.Gizmos);
-//        activeController.Cleanup(UpdateType.Gizmos);
+            _activeController.Cleanup(UpdateType.Gizmos);
         }
 
         #endif

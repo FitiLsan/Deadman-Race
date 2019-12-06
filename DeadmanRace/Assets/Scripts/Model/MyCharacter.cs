@@ -6,10 +6,17 @@ namespace DeadmanRace
     public sealed class MyCharacter : IWalk
     {
         #region PrivateData
+
         private Vector3 _direction;
         private readonly float _velosity;
+
+        #endregion
+
+
+        #region Properties
         private Rigidbody Rigidbody { get; }
         private PlayerBehaviour PlayerBehaviour { get; }
+
         #endregion
 
 

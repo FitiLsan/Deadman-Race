@@ -8,7 +8,7 @@ namespace DeadmanRace
     {
         #region Fields
         //add for class UnitMotor for our player
-        public float Velosity { get; set; } = 5f;
+        public float Velosity  = 5.0f;
         public Vector3 Position;
 
         #endregion

@@ -28,9 +28,8 @@ namespace DeadmanRace
         {
             var h = Input.GetAxis("Horizontal");
             var v = Input.GetAxis("Vertical");
-            Debug.Log("OnWork");
-            Debug.Log(h);
-            Debug.Log(v);
+            CustomDebug.Log(h);
+            CustomDebug.Log(v);
             _context.MyCharacter.Walk(h, v);
 
         }
