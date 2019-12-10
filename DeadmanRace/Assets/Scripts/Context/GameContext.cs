@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DeadmanRace.Models;
 
 
 namespace DeadmanRace
@@ -9,6 +10,7 @@ namespace DeadmanRace
         #region Fields
 
         public MyCharacter MyCharacter;
+        public CarModel PlayerCar;
         private readonly SortedList<TriggerObjectType, List<IOnTrigger>> _onTriggers;
         
         #endregion

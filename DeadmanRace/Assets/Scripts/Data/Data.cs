@@ -26,7 +26,7 @@ namespace DeadmanRace
                 {
                     _instance = Resources.Load<Data>("Data/" + typeof(Data).Name);
                 }
-
+                
                 return _instance;
             }
         }

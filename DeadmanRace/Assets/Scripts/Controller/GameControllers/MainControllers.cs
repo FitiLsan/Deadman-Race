@@ -9,6 +9,8 @@
             Add(new InitializationPlayerController(context, services));
             
             Add(new InputController(context, services));
+
+            Add(new CarInitializeController(context, services));
         }
 
         #endregion

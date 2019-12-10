@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06b1c0a1be91f24cb18e9b63a888555, type: 3}
+  m_Name: TestTemplate
+  m_EditorClassIdentifier: 
+  _name: Car
+  _carRotation: {x: 0, y: 0, z: 0}
+  _carcasePosition: {x: 0, y: 0, z: 0}
+  _carcaseDescription: {fileID: 11400000, guid: 7d95a5e504a44ed419b394f5db2e2bfe,
+    type: 2}
+  _enginePosition: {x: 0, y: 0, z: 1.15}
+  _engineDescription: {fileID: 11400000, guid: 7545be3d019861947bf53dff0d126f19, type: 2}
+  _fuelTankPosition: {x: 0, y: 0, z: -1.22}
+  _fuelTankDescription: {fileID: 11400000, guid: 5eb2454d97488c64aa06810ee64cccf4,
+    type: 2}
+  _wheelsPositions:
+  - {x: -1.49, y: -0.25, z: 1.32}
+  - {x: 1.49, y: -0.25, z: 1.32}
+  - {x: -1.72, y: -0.25, z: -1.37}
+  - {x: 1.72, y: -0.25, z: -1.37}
+  _wheelDescriptions:
+  - {fileID: 11400000, guid: 7c4a26266142a2746a3003703f87de6c, type: 2}
+  - {fileID: 11400000, guid: 7c4a26266142a2746a3003703f87de6c, type: 2}
+  - {fileID: 11400000, guid: 547c35c93e492864783e65af862d4b02, type: 2}
+  - {fileID: 11400000, guid: 547c35c93e492864783e65af862d4b02, type: 2}
+  _generatorDescriptions: {fileID: 0}
+  _electronics:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _weapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_SteerHelper: 0.65
+  m_MaximumSteerAngle: 45
+  m_TractionControl: 1
+  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
+  m_ReverseTorque: 500
+  m_Downforce: 100
+  m_Topspeed: 200
+  m_NoOfGears: 5
+  m_RevRangeBoundary: 1
+  m_SlipLimit: 1.02
+  m_BrakeTorque: 20000
