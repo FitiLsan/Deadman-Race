@@ -5,16 +5,25 @@ namespace DeadmanRace.Components
 {
     public sealed class CarWheel : BaseCarComponent<Wheel>
     {
+        #region Fields
+
         private WheelCollider _wheel;
 
         private bool _wheelIsNull = true;
 
+        #endregion
+
+
+        #region UnityMethods
 
         private void Awake() => _wheelIsNull = !TryGetComponent(out _wheel);
-        
+
+        #endregion
+
+
+        #region Methods
 
         public bool GetWheelGroundHit(out WheelHit hit) => _wheel.GetGroundHit(out hit);
-        
 
         public void SetSteerAngle(float value)
         {
@@ -36,9 +45,11 @@ namespace DeadmanRace.Components
 
         public void SetBreakTorque(float torque)
         {
-            if (_wheelIsNull) return;
+            if (_descriptionIsNull || _wheelIsNull) return;
 
             _wheel.brakeTorque = torque;
         }
+
+        #endregion
     }
 }

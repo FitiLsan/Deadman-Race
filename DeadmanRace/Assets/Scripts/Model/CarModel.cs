@@ -9,7 +9,9 @@ namespace DeadmanRace.Models
 {
     public sealed class CarModel : IDrivable
     {
-        public const ObjectType GameObjectType = ObjectType.Vehicle;
+        #region Fields
+
+        public readonly ObjectType GameObjectType = ObjectType.Vehicle;
         
         private Rigidbody _rigidbody;
 
@@ -17,8 +19,17 @@ namespace DeadmanRace.Models
 
         private MotionModel _motionModel;
 
+        #endregion
+
+
+        #region Properties
+
         public Transform CarTransform { get; private set; }
 
+        #endregion
+
+
+        #region ClassLifeCycles
 
         public CarModel(CarTemplate template)
         {
@@ -31,15 +42,10 @@ namespace DeadmanRace.Models
             _motionModel = new MotionModel(CarTransform, template);
         }
 
-        #region IDrivable
-        
-        public void Drive(float steering, float accel, float footbrake, float handbrake)
-        {
-            UpdateWeight();
-            _motionModel.Move(steering, accel, footbrake, handbrake);
-        }
-        
         #endregion
+
+
+        #region Methods
 
         private void UpdateWeight()
         {
@@ -52,5 +58,18 @@ namespace DeadmanRace.Models
 
             _rigidbody.mass = totalWeight;
         }
+
+        #endregion
+
+
+        #region IDrivable
+
+        public void Drive(float steering, float accel, float footbrake, float handbrake)
+        {
+            UpdateWeight();
+            _motionModel.Move(steering, accel, footbrake, handbrake);
+        }
+        
+        #endregion
     }
 }

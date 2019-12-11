@@ -6,6 +6,8 @@ namespace DeadmanRace.Items
 {
     public abstract class CarItemDescription : ScriptableObject, IItemDescription
     {
+        #region Fields
+
         [SerializeField]
         private int _iD;
 
@@ -21,6 +23,11 @@ namespace DeadmanRace.Items
         [SerializeField]
         protected bool _createEmpty = false;
 
+        #endregion
+
+
+        #region Properties
+
         public int ID { get => _iD; }
 
         public ItemTypes ItemType { get; protected set;}
@@ -31,9 +38,20 @@ namespace DeadmanRace.Items
 
         public Sprite GameSprite { get => _gameSprite; }
 
+        #endregion
+
+
+        #region UnityMethods
 
         protected abstract void OnEnable();
 
+        #endregion
+
+
+        #region Methods
+
         public abstract void InstantiateObject(Transform parent, Vector3 position);
+
+        #endregion
     }
 }

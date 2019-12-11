@@ -5,9 +5,12 @@ namespace DeadmanRace.Components
 {
     public sealed class MotionModel
     {
+        #region Fields
+
         private const int EVERY_N_FRAME = 5;
 
         private CarTemplate _model;
+
         private bool _modelIsNull = true;
 
         private Transform _transform;
@@ -15,8 +18,11 @@ namespace DeadmanRace.Components
         private Rigidbody _rigidbody;
 
         private CarCarcase _carcase;
+
         private CarEngine _engine;
+
         private CarFuelTank _fuelTank;
+
         private CarWheel[] _wheels;
 
         #region StandartAssetCarControllerPrivateVariables
@@ -47,6 +53,9 @@ namespace DeadmanRace.Components
 
         #endregion
 
+        #endregion
+
+
         #region StandartAssetCarControllerProperties
 
         public bool Skidding { get; private set; }
@@ -58,6 +67,9 @@ namespace DeadmanRace.Components
         public float AccelInput { get; private set; }
 
         #endregion
+
+
+        #region ClassLifeCycles
 
         public MotionModel(Transform car, CarTemplate model)
         {
@@ -78,6 +90,11 @@ namespace DeadmanRace.Components
 
             InitializeStandartAssetVariables();
         }
+
+        #endregion
+
+
+        #region Methods
 
         private void InitializeStandartAssetVariables()
         {
@@ -144,7 +161,6 @@ namespace DeadmanRace.Components
             CheckForWheelSpin();
         }
         
-
         #region StandartAssetCarController
 
         private void GearChanging()
@@ -324,6 +340,8 @@ namespace DeadmanRace.Components
             //}
             return false;
         }
+        #endregion
+
         #endregion
     }
 }

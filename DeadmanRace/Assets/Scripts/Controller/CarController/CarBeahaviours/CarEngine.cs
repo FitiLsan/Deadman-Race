@@ -6,6 +6,8 @@ namespace DeadmanRace.Components
 {
     public sealed class CarEngine : BaseCarComponent<Engine>, ISetDamage<float>
     {
+        #region Properties
+
         public float CurentHealth { get; private set; }
         
         public float MaxHealth
@@ -17,6 +19,11 @@ namespace DeadmanRace.Components
                 return _description.MaxHealth;
             }
         }
+
+        #endregion
+
+
+        #region Methods
 
         public float GetTorque(CarFuelTank fuelSource, float traveledDistance)
         {
@@ -36,22 +43,30 @@ namespace DeadmanRace.Components
 
                 case FuelTypes.Bad:
                     result = _description.Power * _description.ReducePowerByFuel;
-                    // damage
                     break;
 
                 default:
-                    result = 0;
+                    result = 0f;
                     break;
             }
 
             return result;
         }
-        
+
+        #endregion
+
+
+        #region ISetDamage
+
         public void SetDamage(float damage)
         {
+            if (_descriptionIsNull) return;
+
             CurentHealth -= damage;
 
             CurentHealth = CurentHealth <= 0f ? 0f : CurentHealth;
         }
+
+        #endregion
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace DeadmanRace.Interfaces
 {
-    public interface IDragAndDropHelper
+    public interface IDragAndDropComponent
     {
         void EndDragging();
         void SetDraggingPosition(PointerEventData data);

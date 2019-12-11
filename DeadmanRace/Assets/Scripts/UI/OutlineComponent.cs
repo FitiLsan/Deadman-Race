@@ -4,13 +4,25 @@ using DeadmanRace.Interfaces;
 
 namespace DeadmanRace.UI
 {
-    public class OutlineComponent : MonoBehaviour, IOutlineHelper
+    public class OutlineComponent : MonoBehaviour, IOutlineComponent
     {
+        #region Fields
+
         private Image _outlineImage;
         private bool _outlineImageIsNull = true;
-        
+
+        #endregion
+
+
+        #region UnityMethods
+
         public void Awake() => _outlineImageIsNull = !TryGetComponent(out _outlineImage);
 
+        #endregion
+
+
+        #region IOutlineComponent
+        
         public void Enable()
         {
             if (_outlineImageIsNull) return;
@@ -24,5 +36,7 @@ namespace DeadmanRace.UI
             
             _outlineImage.enabled = false;
         }
+
+        #endregion
     }
 }

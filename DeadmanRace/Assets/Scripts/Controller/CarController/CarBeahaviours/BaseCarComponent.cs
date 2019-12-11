@@ -6,6 +6,8 @@ namespace DeadmanRace.Components
 {
     public abstract class BaseCarComponent<T> : MonoBehaviour, IEquipableComponent, IWeightComponent where T : class, IItemDescription
     {
+        #region Fields
+
         protected T _description;
 
         protected IEquipmentSlot _subscribedSlot;
@@ -16,10 +18,11 @@ namespace DeadmanRace.Components
 
         protected bool _isSunscribed = false;
 
+        #endregion
+        
 
-        public ItemTypes _componentType { get; private set; }
-
-
+        #region Methods
+        
         protected virtual void SetItem(IItemDescription description)
         {
             _description = description as T;
@@ -31,38 +34,7 @@ namespace DeadmanRace.Components
             _description = null;
             _descriptionIsNull = true;
         }
-
-        public virtual bool AttachSlot(IEquipmentSlot slot)
-        {
-            if (_isSunscribed) return false;
-
-            _subscribedSlot = slot;
-            _subscribedSlotIsNull = false;
-
-            _subscribedSlot.Equip(_description);
-
-            _subscribedSlot.OnChange += UpdateComponent;
-
-            _subscribedSlot.IsActive = true;
-
-            _isSunscribed = true;
-
-            return true;
-        }
-
-        public virtual void UnattachSlot()
-        {
-            _subscribedSlot.IsActive = false;
-
-            _subscribedSlot.OnChange -= UpdateComponent;
-
-            _subscribedSlot.Unequip();
-
-            _subscribedSlot = null;
-            _subscribedSlotIsNull = true;
-            _isSunscribed = false;
-        }
-
+        
         protected virtual void UpdateComponent(IItemDescription data, EquipmentEventTypes evenType)
         {
             switch (evenType)
@@ -90,6 +62,50 @@ namespace DeadmanRace.Components
             SetItem(description);
         }
         
+        #endregion
+        
+        
+        #region IEquipableComponent
+
+        public ItemTypes _componentType { get; private set; }
+
+        public virtual bool AttachSlot(IEquipmentSlot slot)
+        {
+            if (_isSunscribed) return false;
+
+            _subscribedSlot = slot;
+            _subscribedSlotIsNull = false;
+
+            _subscribedSlot.Equip(_description);
+
+            _subscribedSlot.OnChange += UpdateComponent;
+
+            _subscribedSlot.IsActive = true;
+
+            _isSunscribed = true;
+
+            return true;
+        }
+        public virtual void UnattachSlot()
+        {
+            _subscribedSlot.IsActive = false;
+
+            _subscribedSlot.OnChange -= UpdateComponent;
+
+            _subscribedSlot.Unequip();
+
+            _subscribedSlot = null;
+            _subscribedSlotIsNull = true;
+            _isSunscribed = false;
+        }
+
+        #endregion
+
+
+        #region IWeightComponent
+
         public virtual float GetWeight() => _descriptionIsNull ? 0f : _description.Weight;
+
+        #endregion
     }
 }

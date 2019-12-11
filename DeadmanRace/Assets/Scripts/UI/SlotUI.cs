@@ -8,6 +8,8 @@ namespace DeadmanRace.UI
 {
     public class SlotUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
+        #region Fields
+
         private const float ALPHA_TRANSPARENT = 0.5f;
         private const float ALPHA_OPAQUE = 1f;
 
@@ -19,27 +21,37 @@ namespace DeadmanRace.UI
         private IconUI _icon;
         private bool _iconIsNull = true;
 
-        private IOutlineHelper _outline;
+        private IOutlineComponent _outline;
         private bool _outlineIsNull = true;
 
-        private IDragAndDropHelper _dragAndDropHelper;
+        private IDragAndDropComponent _dragAndDropHelper;
         private bool _dragAndDropHelperIsNull = true;
 
         private bool _slotIsActive = false;
 
+        #endregion
+
+
+        #region Properties
+
         public ItemTypes GetSlotType { get => _slotType; }
 
         public IEquipmentSlot Slot { get; private set; }
+
+        #endregion
+
+
+        #region UnityMethods
 
         private void Awake()
         {
             _slotIcon = GetComponent<Image>();
             if (_slotIcon == null) throw new System.NullReferenceException("[SlotUI] Image component not found");
 
-            _dragAndDropHelper = GetComponentInParent<IDragAndDropHelper>();
+            _dragAndDropHelper = GetComponentInParent<IDragAndDropComponent>();
             if (_dragAndDropHelper != null) _dragAndDropHelperIsNull = false;
 
-            _outline = GetComponentInChildren<IOutlineHelper>();
+            _outline = GetComponentInChildren<IOutlineComponent>();
             if (_outline != null) _outlineIsNull = false;
 
             _icon = GetComponentInChildren<IconUI>();
@@ -47,6 +59,11 @@ namespace DeadmanRace.UI
 
             SetActive(false);
         }
+
+        #endregion
+
+
+        #region Methods
 
         public void AttachEquipmentSlot(IEquipmentSlot slot) => Slot = slot;
         
@@ -77,6 +94,27 @@ namespace DeadmanRace.UI
             }
         }
 
+        private void SetActive(bool isActive)
+        {
+            _slotIsActive = isActive;
+            var curentColor = _slotIcon.color;
+
+            if (isActive)
+            {
+                curentColor.a = ALPHA_OPAQUE;
+                _slotIcon.color = curentColor;
+            }
+            else
+            {
+                curentColor.a = ALPHA_TRANSPARENT;
+                _slotIcon.color = curentColor;
+            }
+        }
+
+        #endregion
+
+
+        #region IPointerHandlers
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -92,6 +130,10 @@ namespace DeadmanRace.UI
             _outline.Disable();
         }
 
+        #endregion
+
+
+        #region IDragHandlers
 
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -143,22 +185,6 @@ namespace DeadmanRace.UI
             }
         }
 
-        
-        private void SetActive(bool isActive)
-        {
-            _slotIsActive = isActive;
-            var curentColor = _slotIcon.color;
-
-            if (isActive)
-            {
-                curentColor.a = ALPHA_OPAQUE;
-                _slotIcon.color = curentColor;
-            }
-            else
-            {
-                curentColor.a = ALPHA_TRANSPARENT;
-                _slotIcon.color = curentColor;
-            }
-        }
+        #endregion
     }
 }

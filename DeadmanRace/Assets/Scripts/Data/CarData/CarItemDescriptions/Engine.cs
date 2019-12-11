@@ -4,9 +4,11 @@ using DeadmanRace.Components;
 
 namespace DeadmanRace.Items
 {
-    [CreateAssetMenu(fileName = "New Engine", menuName = "Items/Car/Create engine")]
+    [CreateAssetMenu(fileName = "New Engine", menuName = "Data/Car/Components/Create engine")]
     public class Engine : CarItemDescription
     {
+        #region Fields
+
         [SerializeField]
         private Vector3 _hitboxSize;
 
@@ -31,6 +33,11 @@ namespace DeadmanRace.Items
         [Min(0f)]
         private float _damageByFuel;
 
+        #endregion
+
+
+        #region Properties
+
         public float ReducePowerByFuel { get => 1f - _reducePowerByFuel; }
 
         public float MaxSpeed { get => _maxSpeed; }
@@ -40,6 +47,11 @@ namespace DeadmanRace.Items
         public float MaxHealth { get => _maxHealth; }
 
         public float FuelConsumption { get => _fuelConsumption; }
+
+        #endregion
+
+
+        #region Methods
 
         public override void InstantiateObject(Transform parent, Vector3 position)
         {
@@ -55,9 +67,13 @@ namespace DeadmanRace.Items
             else obj.AddComponent<CarEngine>().Initialize(ItemType);
         }
 
-        protected override void OnEnable()
-        {
-            ItemType = ItemTypes.Engine;
-        }
+        #endregion
+
+
+        #region UnityMethods
+
+        protected override void OnEnable() => ItemType = ItemTypes.Engine;
+
+        #endregion
     }
 }

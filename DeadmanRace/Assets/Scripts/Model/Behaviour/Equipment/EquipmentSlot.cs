@@ -6,11 +6,18 @@ namespace DeadmanRace.Objects
 {
     public class EquipmentSlot : IEquipmentSlot
     {
+        public event Action<IItemDescription, EquipmentEventTypes> OnChange;
+
+        #region Fields
+
         private const int EMPTY = -1;
 
         private bool _isActive;
 
-        public event Action<IItemDescription, EquipmentEventTypes> OnChange;
+        #endregion
+
+
+        #region Properties
 
         public IItemDescription Item { get; private set; }
 
@@ -30,11 +37,20 @@ namespace DeadmanRace.Objects
 
         public bool IsEmpty { get; private set; } = true;
 
+        #endregion
+
+
+        #region ClassLifeCycles
 
         public EquipmentSlot(ItemTypes slotType)
         {
             Type = slotType;
         }
+
+        #endregion
+
+
+        #region IEquipmentSlot
 
         public bool Equip(IItemDescription item)
         {
@@ -57,5 +73,7 @@ namespace DeadmanRace.Objects
 
             OnChange?.Invoke(Item, EquipmentEventTypes.Unequip);
         }
+
+        #endregion
     }
 }

@@ -6,13 +6,20 @@ using DeadmanRace;
 
 namespace DeadmanRace.UI
 {
-    public class DragAndDropComponent : MonoBehaviour, IDragAndDropHelper
+    public class DragAndDropComponent : MonoBehaviour, IDragAndDropComponent
     {
+        #region Fields
+
         private Canvas _canvas;
         private GameObject _draggingObj;
         private Image _draggingIcon;
         private RectTransform _draggingObjRectTransform;
         private RectTransform _draggingPlane;
+
+        #endregion
+
+
+        #region UnityMethods
 
         private void Awake()
         {
@@ -28,6 +35,11 @@ namespace DeadmanRace.UI
 
             _draggingPlane = _canvas.transform as RectTransform;
         }
+
+        #endregion
+
+
+        #region IDragAndDropComponent
 
         public void StartDragging(Sprite draggingIcon, Vector2 size)
         {
@@ -51,5 +63,7 @@ namespace DeadmanRace.UI
             _draggingObj.SetActive(false);
             _draggingIcon.sprite = null;
         }
+
+        #endregion
     }
 }

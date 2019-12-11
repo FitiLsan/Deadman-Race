@@ -11,6 +11,8 @@ namespace DeadmanRace.Components
 
     public sealed class Equipment : MonoBehaviour, IEquipment
     {
+        #region Fields
+
         [SerializeField]
         private ObjectType _targetObjectType;
 
@@ -21,7 +23,17 @@ namespace DeadmanRace.Components
         private IEquipableComponent[] _equipableObjects;
         private bool _equipableObjectTransformIsNull = true;
 
+        #endregion
+
+
+        #region Properties
+
         public ObjectType GetTargetObjecType { get => _targetObjectType; }
+
+        #endregion
+
+
+        #region UnityMethods
 
         private void Awake()
         {
@@ -56,6 +68,11 @@ namespace DeadmanRace.Components
             }
         }
 
+        #endregion
+
+
+        #region IEquipment
+
         public void AttachObject(Transform objTransform)
         {
             if (!_equipableObjectTransformIsNull)
@@ -83,5 +100,7 @@ namespace DeadmanRace.Components
                 }
             }
         }
+
+        #endregion
     }
 }

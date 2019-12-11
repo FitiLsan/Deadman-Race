@@ -23,6 +23,9 @@ namespace DeadmanRace
 
         #endregion
 
+
+        #region IInitializeController
+
         public void Initialize()
         {
             var carData = Resources.Load<CarTemplate>("CarData/TestTemplate");
@@ -36,10 +39,7 @@ namespace DeadmanRace
             var equipment = Object.FindObjectOfType<Equipment>();
             equipment.AttachObject(carModel.CarTransform);
         }
+
+        #endregion
     }
 }
-//var horizontal = Input.GetAxis("Horizontal");
-//var vertical = Input.GetAxis("Vertical");
-//var handbreak = Input.GetAxis("Jump");
-
-//_drivableObj.Drive(horizontal, vertical, vertical, handbreak);

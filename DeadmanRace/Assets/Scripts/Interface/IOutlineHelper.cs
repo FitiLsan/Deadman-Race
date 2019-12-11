@@ -1,6 +1,6 @@
 ﻿namespace DeadmanRace.Interfaces
 {
-    public interface IOutlineHelper
+    public interface IOutlineComponent
     {
         void Enable();
         void Disable();

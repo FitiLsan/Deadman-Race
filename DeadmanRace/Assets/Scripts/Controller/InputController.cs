@@ -22,6 +22,7 @@ namespace DeadmanRace
 
         #endregion
 
+
         #region IExecuteController
 
         Equipment equipment;

@@ -8,7 +8,7 @@ namespace DeadmanRace.Items
     [CreateAssetMenu(fileName = "New car template", menuName = "Data/Car/Create template")]
     public class CarTemplate : ScriptableObject
     {
-        #region SerializeFields
+        #region Fields
 
         [SerializeField]
         private string _name = "Car";
@@ -56,8 +56,7 @@ namespace DeadmanRace.Items
         [Space(10)]
         [SerializeField]
         private CarItemDescription[] _weapons = new CarItemDescription[6];
-        #endregion
-
+        
         #region SerializeFieldsFromStandartAssetPack
         [Space(20)]
         [SerializeField]
@@ -107,8 +106,13 @@ namespace DeadmanRace.Items
         public float GetBrakeTorque { get => m_BrakeTorque; }
 
         #endregion
-
+        
         private float _mass;
+
+        #endregion
+
+
+        #region Methods
 
         public Transform InstantiateCar()
         {
@@ -147,5 +151,7 @@ namespace DeadmanRace.Items
 
             return component.Weight;
         }
+
+        #endregion
     }
 }

@@ -4,9 +4,11 @@ using DeadmanRace.Components;
 
 namespace DeadmanRace.Items
 {
-    [CreateAssetMenu(fileName = "New Carcase", menuName = "Items/Car/Create carcase")]
+    [CreateAssetMenu(fileName = "New Carcase", menuName = "Data/Car/Components/Create carcase")]
     public class Carcase : CarItemDescription
     {
+        #region Fields
+
         [SerializeField]
         private Vector3 _hitboxSize;
 
@@ -18,7 +20,24 @@ namespace DeadmanRace.Items
 
         private Vector3 _spriteRotation = new Vector3(90f, 0f, 0f);
 
+        #endregion
+
+
+        #region Properties
+
         public float MaxHealth { get => _maxHealth; }
+
+        #endregion
+
+
+        #region UnityMethods
+
+        protected override void OnEnable() => ItemType = ItemTypes.Carcase;
+
+        #endregion
+
+
+        #region Methods
 
         public override void InstantiateObject(Transform parent, Vector3 position)
         {
@@ -39,6 +58,6 @@ namespace DeadmanRace.Items
             else obj.AddComponent<CarCarcase>().Initialize(ItemType);
         }
 
-        protected override void OnEnable() => ItemType = ItemTypes.Carcase;
+        #endregion
     }
 }
