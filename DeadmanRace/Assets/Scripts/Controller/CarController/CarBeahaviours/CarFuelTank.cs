@@ -1,6 +1,7 @@
 ﻿using DeadmanRace.Items;
 using DeadmanRace.Enums;
 
+
 namespace DeadmanRace.Components
 {
     public sealed class CarFuelTank : BaseCarComponent<FuelTank>, ISetDamage<float>
@@ -68,7 +69,6 @@ namespace DeadmanRace.Components
             if (_descriptionIsNull) return;
 
             CurentHealth -= damage;
-
             CurentHealth = CurentHealth <= 0f ? 0f : CurentHealth;
         }
 

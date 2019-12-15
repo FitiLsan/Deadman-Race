@@ -2,6 +2,7 @@
 using DeadmanRace.Enums;
 using DeadmanRace.Components;
 
+
 namespace DeadmanRace.Items
 {
     [CreateAssetMenu(fileName = "New Carcase", menuName = "Data/Car/Components/Create carcase")]
@@ -9,14 +10,9 @@ namespace DeadmanRace.Items
     {
         #region Fields
 
-        [SerializeField]
-        private Vector3 _hitboxSize;
-
-        [SerializeField]
-        private float _maxHealth;
-
-        [SerializeField]
-        private Vector3 _spriteScale = Vector3.one;
+        [SerializeField] private Vector3 _hitboxSize;
+        [SerializeField] private float _maxHealth;
+        [SerializeField] private Vector3 _spriteScale = Vector3.one;
 
         private Vector3 _spriteRotation = new Vector3(90f, 0f, 0f);
 

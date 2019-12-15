@@ -3,6 +3,7 @@ using DeadmanRace.Components;
 using DeadmanRace.Items;
 using DeadmanRace.Models;
 
+
 namespace DeadmanRace
 {
     public class CarInitializeController : IInitializeController
@@ -35,9 +36,7 @@ namespace DeadmanRace
             var carModel = new CarModel(carData);
 
             _context.PlayerCar = carModel;
-
-            var equipment = Object.FindObjectOfType<Equipment>();
-            equipment.AttachObject(carModel.CarTransform);
+            _context.CarEquipment.AttachObject(carModel.CarTransform);
         }
 
         #endregion

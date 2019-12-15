@@ -1,6 +1,6 @@
-﻿using DeadmanRace.Interfaces;
-using DeadmanRace.Items;
+﻿using DeadmanRace.Items;
 using DeadmanRace.Enums;
+
 
 namespace DeadmanRace.Components
 {
@@ -9,7 +9,7 @@ namespace DeadmanRace.Components
         #region Properties
 
         public float CurentHealth { get; private set; }
-        
+
         public float MaxHealth
         {
             get
@@ -63,7 +63,6 @@ namespace DeadmanRace.Components
             if (_descriptionIsNull) return;
 
             CurentHealth -= damage;
-
             CurentHealth = CurentHealth <= 0f ? 0f : CurentHealth;
         }
 

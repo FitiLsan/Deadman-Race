@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using DeadmanRace.Enums;
-using DeadmanRace.Components;
+﻿using UnityEngine;
+
 
 namespace DeadmanRace.Items
 {
@@ -10,99 +8,60 @@ namespace DeadmanRace.Items
     {
         #region Fields
 
-        [SerializeField]
-        private string _name = "Car";
+        [SerializeField] private string _name = "Car";
+        [Space(10), SerializeField] private Vector3 _carRotation = Vector3.zero;
 
-        [Space(10)]
-        [SerializeField]
-        private Vector3 _carRotation = Vector3.zero;
+        [Space(10), SerializeField] private Vector3 _carcasePosition = Vector3.zero;
+        [SerializeField] private Carcase _carcaseDescription;
 
-        [Space(10)]
-        [SerializeField]
-        private Vector3 _carcasePosition = Vector3.zero;
+        [Space(10), SerializeField] private Vector3 _enginePosition = Vector3.zero;
+        [SerializeField] private Engine _engineDescription;
 
-        [SerializeField]
-        private Carcase _carcaseDescription;
+        [Space(10), SerializeField] private Vector3 _fuelTankPosition = Vector3.zero;
+        [SerializeField] private FuelTank _fuelTankDescription;
 
-        [Space(10)]
-        [SerializeField]
-        private Vector3 _enginePosition = Vector3.zero;
+        [Space(10), SerializeField] private Vector3[] _wheelsPositions;
+        [SerializeField] private Wheel[] _wheelDescriptions;
 
-        [SerializeField]
-        private Engine _engineDescription;
+        [Space(10), SerializeField] private Generator _generatorDescriptions;
+        [Space(10), SerializeField] private CarItemDescription[] _electronics = new CarItemDescription[5];
 
-        [Space(10)]
-        [SerializeField]
-        private Vector3 _fuelTankPosition = Vector3.zero;
-
-        [SerializeField]
-        private FuelTank _fuelTankDescription;
-
-        [Space(10)]
-        [SerializeField]
-        private Vector3[] _wheelsPositions;
-
-        [SerializeField]
-        private Wheel[] _wheelDescriptions;
-
-        [Space(10)]
-        [SerializeField]
-        private Generator _generatorDescriptions;
-
-        [Space(10)]
-        [SerializeField]
-        private CarItemDescription[] _electronics = new CarItemDescription[5];
-
-        [Space(10)]
-        [SerializeField]
-        private CarItemDescription[] _weapons = new CarItemDescription[6];
+        [Space(10), SerializeField] private CarItemDescription[] _weapons = new CarItemDescription[6];
         
         #region SerializeFieldsFromStandartAssetPack
-        [Space(20)]
-        [SerializeField]
-        [Range(0, 1)]
-        private float m_SteerHelper;
+
+        [Space(20), SerializeField, Range(0, 1)] private float m_SteerHelper;
         public float GetSteerHelper { get => m_SteerHelper; }
 
-        [SerializeField]
-        private float m_MaximumSteerAngle;
+        [SerializeField]private float m_MaximumSteerAngle;
         public float GetMaximumSteerAngle { get => m_MaximumSteerAngle; }
 
-        [SerializeField]
-        [Range(0, 1)]
-        private float m_TractionControl;
+        [SerializeField] [Range(0, 1)] private float m_TractionControl;
         public float GetTractionControl { get => m_TractionControl; }
 
         [SerializeField]
         private Vector3 m_CentreOfMassOffset;
         public Vector3 GetCentreOfMassOffset { get => m_CentreOfMassOffset; }
 
-        [SerializeField]
-        private float m_ReverseTorque;
+        [SerializeField] private float m_ReverseTorque;
         public float GetReverseTorque { get => m_ReverseTorque; }
 
-        [SerializeField]
-        private float m_Downforce = 100f;
+        [SerializeField] private float m_Downforce = 100f;
         public float GetDownforce { get => m_Downforce; }
 
-        [SerializeField]
-        private float m_Topspeed = 200;
+        [SerializeField] private float m_Topspeed = 200;
         public float GetTopspeed { get => m_Topspeed; }
 
-        [SerializeField]
-        private int m_NoOfGears = 5;
+        [SerializeField] private int m_NoOfGears = 5;
         public int GetNoOfGears { get => m_NoOfGears; }
 
-        [SerializeField]
-        private float m_RevRangeBoundary = 1f;
+        [SerializeField] private float m_RevRangeBoundary = 1f;
         public float GetRevRangeBoundary { get => m_RevRangeBoundary; }
 
-        [SerializeField]
-        private float m_SlipLimit;
+        [SerializeField]  private float m_SlipLimit;
         public float GetSlipLimit { get => m_SlipLimit; }
 
-        [SerializeField]
-        private float m_BrakeTorque;
+        [SerializeField] private float m_BrakeTorque;
         public float GetBrakeTorque { get => m_BrakeTorque; }
 
         #endregion

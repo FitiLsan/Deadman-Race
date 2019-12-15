@@ -1,28 +1,22 @@
 ﻿using UnityEngine;
 using DeadmanRace.Items;
 
+
 namespace DeadmanRace.Components
 {
     public sealed class MotionModel
     {
         #region Fields
 
-        private const int EVERY_N_FRAME = 5;
-
         private CarTemplate _model;
-
         private bool _modelIsNull = true;
 
         private Transform _transform;
-
         private Rigidbody _rigidbody;
 
         private CarCarcase _carcase;
-
         private CarEngine _engine;
-
         private CarFuelTank _fuelTank;
-
         private CarWheel[] _wheels;
 
         #region StandartAssetCarControllerPrivateVariables
@@ -59,11 +53,17 @@ namespace DeadmanRace.Components
         #region StandartAssetCarControllerProperties
 
         public bool Skidding { get; private set; }
+
         public float BrakeInput { get; private set; }
+
         public float CurrentSteerAngle { get { return m_SteerAngle; } }
+
         public float CurrentSpeed { get { return _rigidbody.velocity.magnitude * 2.23693629f; } }
+
         public float MaxSpeed { get { return m_Topspeed; } }
+
         public float Revs { get; private set; }
+
         public float AccelInput { get; private set; }
 
         #endregion
@@ -98,13 +98,13 @@ namespace DeadmanRace.Components
 
         private void InitializeStandartAssetVariables()
         {
-            m_FullTorqueOverAllWheels = _engine.GetTorque(_fuelTank, Time.deltaTime * EVERY_N_FRAME * _rigidbody.velocity.magnitude);
+            m_FullTorqueOverAllWheels = _engine.GetTorque(_fuelTank, Time.deltaTime * _rigidbody.velocity.magnitude);
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl * m_FullTorqueOverAllWheels);
             m_SteerHelper = _model.GetSteerHelper;
             m_MaximumSteerAngle = _model.GetMaximumSteerAngle;
             m_TractionControl = _model.GetTractionControl;
             m_CentreOfMassOffset = _model.GetCentreOfMassOffset;
-            m_ReverseTorque = _engine.GetTorque(_fuelTank, Time.deltaTime * EVERY_N_FRAME * _rigidbody.velocity.magnitude) / _model.GetNoOfGears;
+            m_ReverseTorque = _engine.GetTorque(_fuelTank, Time.deltaTime * _rigidbody.velocity.magnitude) / _model.GetNoOfGears;
             m_Downforce = _model.GetDownforce;
             m_Topspeed = _model.GetTopspeed;
             NoOfGears = _model.GetNoOfGears;
@@ -112,17 +112,15 @@ namespace DeadmanRace.Components
             m_SlipLimit = _model.GetSlipLimit;
             m_BrakeTorque = _model.GetBrakeTorque;
         }
-        
+
         public void Move(float steering, float accel, float footbrake, float handbrake)
         {
             if (_modelIsNull) return;
 
             //clamp input values
-            if (Time.frameCount % EVERY_N_FRAME == 0)
-            {
-                m_FullTorqueOverAllWheels = _engine.GetTorque(_fuelTank, Time.deltaTime * EVERY_N_FRAME * _rigidbody.velocity.magnitude);
-                m_ReverseTorque = m_FullTorqueOverAllWheels / NoOfGears;
-            }
+
+            m_FullTorqueOverAllWheels = _engine.GetTorque(_fuelTank, Time.deltaTime * _rigidbody.velocity.magnitude);
+            m_ReverseTorque = m_FullTorqueOverAllWheels / NoOfGears;
 
             steering = Mathf.Clamp(steering, -1, 1);
             AccelInput = accel = Mathf.Clamp(accel, 0, 1);

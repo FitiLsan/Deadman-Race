@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using DeadmanRace.Items;
 
+
 namespace DeadmanRace.Components
 {
     public sealed class CarWheel : BaseCarComponent<Wheel>
@@ -8,7 +9,6 @@ namespace DeadmanRace.Components
         #region Fields
 
         private WheelCollider _wheel;
-
         private bool _wheelIsNull = true;
 
         #endregion

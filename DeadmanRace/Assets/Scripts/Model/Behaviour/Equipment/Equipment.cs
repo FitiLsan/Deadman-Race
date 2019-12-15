@@ -6,20 +6,16 @@ using DeadmanRace.Enums;
 using DeadmanRace.Objects;
 using DeadmanRace.UI;
 
+
 namespace DeadmanRace.Components
 {
-
     public sealed class Equipment : MonoBehaviour, IEquipment
     {
         #region Fields
 
-        [SerializeField]
-        private ObjectType _targetObjectType;
-
+        [SerializeField] private ObjectType _targetObjectType;
         private SlotUI[] _slotsUI;
-
         private IEquipmentSlot[] _equipment;
-
         private IEquipableComponent[] _equipableObjects;
         private bool _equipableObjectTransformIsNull = true;
 

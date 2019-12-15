@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
 using DeadmanRace.Enums;
 
+
 namespace DeadmanRace.Items
 {
     public class Generator : CarItemDescription
     {
         #region Fields
 
-        [SerializeField]
-        [Range(0f, 1f)]
-        private float _reducePowerByGenerator;
-
-        [SerializeField]
-        [Range(0f, 5f)]
-        private float _electricSlotsAmount;
+        [SerializeField, Range(0f, 1f)] private float _reducePowerByGenerator;
+        [SerializeField, Range(0f, 5f)] private float _electricSlotsAmount;
 
         #endregion
 

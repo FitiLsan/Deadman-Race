@@ -2,6 +2,7 @@
 using DeadmanRace.Interfaces;
 using DeadmanRace.Enums;
 
+
 namespace DeadmanRace.Components
 {
     public abstract class BaseCarComponent<T> : MonoBehaviour, IEquipableComponent, IWeightComponent where T : class, IItemDescription
@@ -9,20 +10,23 @@ namespace DeadmanRace.Components
         #region Fields
 
         protected T _description;
-
         protected IEquipmentSlot _subscribedSlot;
-
         protected bool _descriptionIsNull = true;
-
         protected bool _subscribedSlotIsNull = true;
-
         protected bool _isSunscribed = false;
 
         #endregion
-        
+
+
+        #region Properties
+
+        public ItemTypes _componentType { get; private set; }
+
+        #endregion
+
 
         #region Methods
-        
+
         protected virtual void SetItem(IItemDescription description)
         {
             _description = description as T;
@@ -66,9 +70,7 @@ namespace DeadmanRace.Components
         
         
         #region IEquipableComponent
-
-        public ItemTypes _componentType { get; private set; }
-
+        
         public virtual bool AttachSlot(IEquipmentSlot slot)
         {
             if (_isSunscribed) return false;
@@ -81,7 +83,6 @@ namespace DeadmanRace.Components
             _subscribedSlot.OnChange += UpdateComponent;
 
             _subscribedSlot.IsActive = true;
-
             _isSunscribed = true;
 
             return true;

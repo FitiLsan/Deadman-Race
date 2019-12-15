@@ -30,16 +30,16 @@ namespace DeadmanRace
 
         public void Execute()
         {
-            var h = Input.GetAxis("Horizontal");
-            var v = Input.GetAxis("Vertical");
-            var j = Input.GetAxis("Jump");
-            CustomDebug.Log(h);
-            CustomDebug.Log(v);
+            var horizontal = Input.GetAxis("Horizontal");
+            var vertical = Input.GetAxis("Vertical");
+            var handbreak = Input.GetAxis("Jump");
+            CustomDebug.Log(horizontal);
+            CustomDebug.Log(vertical);
 
-            if (!InCar) _context.MyCharacter.Walk(h, v);
+            if (!InCar) _context.MyCharacter.Walk(horizontal, vertical);
             else
             {
-                _context.PlayerCar.Drive(h, v, v, j);
+                _context.PlayerCar.Drive(horizontal, vertical, vertical, handbreak);
                 _context.MyCharacter.Transform.position = _context.PlayerCar.CarTransform.position;
             }
 
@@ -50,14 +50,14 @@ namespace DeadmanRace
 
             if (Input.GetKeyDown(KeyCode.I))
             {
-                if (equipment == null) equipment = Object.FindObjectOfType<Equipment>();
+                if (equipment == null) equipment = _context.CarEquipment;
 
                 equipment.gameObject.SetActive(!equipment.gameObject.activeSelf);
             }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if(Physics.Raycast(_context.MyCharacter.Transform.position, _context.MyCharacter.Transform.forward, 3f))
+                if(Physics.Raycast(_context.MyCharacter.Transform.position, _context.MyCharacter.Transform.forward))
                 {
                     InCar = !InCar;
                 }

@@ -5,6 +5,7 @@ using DeadmanRace.Enums;
 using DeadmanRace.Items;
 using DeadmanRace.Components;
 
+
 namespace DeadmanRace.Models
 {
     public sealed class CarModel : IDrivable
@@ -12,11 +13,8 @@ namespace DeadmanRace.Models
         #region Fields
 
         public readonly ObjectType GameObjectType = ObjectType.Vehicle;
-        
         private Rigidbody _rigidbody;
-
         private IWeightComponent[] _weightComponents;
-
         private MotionModel _motionModel;
 
         #endregion

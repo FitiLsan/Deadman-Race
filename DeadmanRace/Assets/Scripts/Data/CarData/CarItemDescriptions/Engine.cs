@@ -2,6 +2,7 @@
 using DeadmanRace.Enums;
 using DeadmanRace.Components;
 
+
 namespace DeadmanRace.Items
 {
     [CreateAssetMenu(fileName = "New Engine", menuName = "Data/Car/Components/Create engine")]
@@ -9,29 +10,13 @@ namespace DeadmanRace.Items
     {
         #region Fields
 
-        [SerializeField]
-        private Vector3 _hitboxSize;
-
-        [SerializeField]
-        private float _maxSpeed;
-
-        [SerializeField]
-        private float _power;
-
-        [SerializeField]
-        private float _maxHealth;
-
-        [SerializeField]
-        [Range(0f, 100f)]
-        private float _fuelConsumption;
-         
-        [SerializeField]
-        [Range(0f, 1f)]
-        private float _reducePowerByFuel;
-
-        [SerializeField]
-        [Min(0f)]
-        private float _damageByFuel;
+        [SerializeField] private Vector3 _hitboxSize;
+        [SerializeField] private float _maxSpeed;
+        [SerializeField] private float _power;
+        [SerializeField] private float _maxHealth;
+        [SerializeField, Range(0f, 100f)] private float _fuelConsumption;
+        [SerializeField, Range(0f, 1f)] private float _reducePowerByFuel;
+        [SerializeField, Min(0f)] private float _damageByFuel;
 
         #endregion
 

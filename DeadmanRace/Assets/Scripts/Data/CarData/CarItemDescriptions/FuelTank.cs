@@ -2,6 +2,8 @@
 using DeadmanRace.Enums;
 using DeadmanRace.Components;
 
+
+
 namespace DeadmanRace.Items
 {
     [CreateAssetMenu(fileName = "New fuel tank", menuName = "Data/Car/Components/Create fuel tank")]
@@ -9,14 +11,9 @@ namespace DeadmanRace.Items
     {
         #region Fields
 
-        [SerializeField]
-        private Vector3 _hitboxSize;
-
-        [SerializeField]
-        private float _capacity;
-
-        [SerializeField]
-        private float _maxHealth;
+        [SerializeField] private Vector3 _hitboxSize;
+        [SerializeField] private float _capacity;
+        [SerializeField] private float _maxHealth;
 
         #endregion
 

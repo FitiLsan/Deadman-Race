@@ -2,7 +2,7 @@
 
 namespace DeadmanRace
 {
-    public class CameraFollow1 : MonoBehaviour
+    public class CameraFollow : MonoBehaviour
     {
         #region PrivateData
         //private Rigidbody _carRigidbody;
