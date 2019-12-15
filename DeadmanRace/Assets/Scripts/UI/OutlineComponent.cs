@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using DeadmanRace.Interfaces;
 
+
 namespace DeadmanRace.UI
 {
     public class OutlineComponent : MonoBehaviour, IOutlineComponent

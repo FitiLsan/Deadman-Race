@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DeadmanRace.Interfaces;
-using DeadmanRace;
+
 
 namespace DeadmanRace.UI
 {

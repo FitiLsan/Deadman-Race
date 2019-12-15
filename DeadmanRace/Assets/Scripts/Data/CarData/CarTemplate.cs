@@ -20,8 +20,7 @@ namespace DeadmanRace.Items
         [Space(10), SerializeField] private Vector3 _fuelTankPosition = Vector3.zero;
         [SerializeField] private FuelTank _fuelTankDescription;
 
-        [Space(10), SerializeField] private Vector3[] _wheelsPositions;
-        [SerializeField] private Wheel[] _wheelDescriptions;
+        [Space(10), SerializeField] private WheelData[] _wheels;
 
         [Space(10), SerializeField] private Generator _generatorDescriptions;
         [Space(10), SerializeField] private CarItemDescription[] _electronics = new CarItemDescription[5];
@@ -84,8 +83,8 @@ namespace DeadmanRace.Items
             _mass += InstantiateComponent(_fuelTankDescription, carTransform, _fuelTankPosition);
             _mass += InstantiateComponent(_generatorDescriptions, carTransform, Vector3.zero);
             
-            for (var i = 0; i < _wheelsPositions.Length; i++)
-                _mass += InstantiateComponent(_wheelDescriptions[i], carTransform, _wheelsPositions[i]);
+            for (var i = 0; i < _wheels.Length; i++)
+                _mass += InstantiateComponent(_wheels[i].WheelDescription, carTransform, _wheels[i].WheelPosition);
             
             for (var i = 0; i < _electronics.Length; i++)
                 _mass += InstantiateComponent(_electronics[i], carTransform, Vector3.zero);

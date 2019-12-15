@@ -46,7 +46,6 @@ namespace DeadmanRace.Components
                     break;
 
                 default:
-                    result = 0f;
                     break;
             }
 

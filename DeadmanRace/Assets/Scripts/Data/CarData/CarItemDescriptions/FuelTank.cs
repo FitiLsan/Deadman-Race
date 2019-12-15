@@ -3,7 +3,6 @@ using DeadmanRace.Enums;
 using DeadmanRace.Components;
 
 
-
 namespace DeadmanRace.Items
 {
     [CreateAssetMenu(fileName = "New fuel tank", menuName = "Data/Car/Components/Create fuel tank")]
@@ -38,16 +37,16 @@ namespace DeadmanRace.Items
 
         public override void InstantiateObject(Transform parent, Vector3 position)
         {
-            var obj = new GameObject(name);
-            obj.transform.SetParent(parent);
+            var carObject = new GameObject(name);
+            carObject.transform.SetParent(parent);
 
-            var collider = obj.AddComponent<BoxCollider>();
+            var collider = carObject.AddComponent<BoxCollider>();
             collider.size = _hitboxSize;
             collider.center = position;
             collider.isTrigger = true;
 
-            if (!_createEmpty) obj.AddComponent<CarFuelTank>().Initialize(this);
-            else obj.AddComponent<CarFuelTank>().Initialize(ItemType);
+            if (!_createEmpty) carObject.AddComponent<CarFuelTank>().Initialize(this);
+            else carObject.AddComponent<CarFuelTank>().Initialize(ItemType);
         }
         
         #endregion

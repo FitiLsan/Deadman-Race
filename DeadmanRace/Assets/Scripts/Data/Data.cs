@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using UnityEngine;
+using DeadmanRace.Items;
 
 
 namespace DeadmanRace
@@ -10,8 +11,10 @@ namespace DeadmanRace
         #region Fields
 
         [SerializeField] private string _playerDataPath;
+        [SerializeField] private string _carDataPath;
         private static Data _instance;
         private static PlayerData _playerData;
+        private static CarTemplate _carData;
 
         #endregion
         
@@ -45,6 +48,18 @@ namespace DeadmanRace
             }
         }
 
+        public static CarTemplate CarData
+        {
+            get
+            {
+                if (_carData == null)
+                {
+                    _carData = Load<CarTemplate>("Data/" + Instance._carDataPath);
+                }
+
+                return _carData;
+            }
+        }
         #endregion
 
 

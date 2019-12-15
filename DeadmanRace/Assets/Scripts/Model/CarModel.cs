@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using DeadmanRace.Interfaces;
 using DeadmanRace.Enums;
 using DeadmanRace.Items;

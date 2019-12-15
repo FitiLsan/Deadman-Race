@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using DeadmanRace.Interfaces;
 using DeadmanRace.Enums;
 
+
 namespace DeadmanRace.UI
 {
     public class SlotUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
@@ -13,8 +14,7 @@ namespace DeadmanRace.UI
         private const float ALPHA_TRANSPARENT = 0.5f;
         private const float ALPHA_OPAQUE = 1f;
 
-        [SerializeField]
-        private ItemTypes _slotType;
+        [SerializeField] private ItemTypes _slotType;
         
         private Image _slotIcon;
 
@@ -144,7 +144,6 @@ namespace DeadmanRace.UI
             var size = (_icon.transform as RectTransform).sizeDelta;
             
             _dragAndDropHelper.StartDragging(_icon.GetIcon, size);
-
             _dragAndDropHelper.SetDraggingPosition(eventData);
         }
 

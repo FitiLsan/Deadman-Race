@@ -10,14 +10,9 @@ namespace DeadmanRace.Items
     {
         #region Fields
 
-        [SerializeField]
-        private bool _isDrivable = true;
-
-        [SerializeField]
-        private bool _isSteerActive = false;
-
-        [SerializeField]
-        private bool _isMirrorRotation = false;
+        [SerializeField] private bool _isDrivable = true;
+        [SerializeField] private bool _isSteerActive = false;
+        [SerializeField] private bool _isMirrorRotation = false;
 
         #endregion
 
@@ -44,13 +39,13 @@ namespace DeadmanRace.Items
 
         public override void InstantiateObject(Transform parent, Vector3 position)
         {
-            var obj = new GameObject(name);
-            obj.transform.SetParent(parent);
-            obj.transform.position = position;
-            obj.AddComponent<WheelCollider>();
+            var carObject = new GameObject(name);
+            carObject.transform.SetParent(parent);
+            carObject.transform.position = position;
+            carObject.AddComponent<WheelCollider>();
 
-            if (!_createEmpty) obj.AddComponent<CarWheel>().Initialize(this);
-            else obj.AddComponent<CarWheel>().Initialize(ItemType);
+            if (!_createEmpty) carObject.AddComponent<CarWheel>().Initialize(this);
+            else carObject.AddComponent<CarWheel>().Initialize(ItemType);
         }
 
         #endregion

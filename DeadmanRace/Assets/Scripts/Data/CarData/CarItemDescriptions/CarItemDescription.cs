@@ -21,9 +21,13 @@ namespace DeadmanRace.Items
         #region Properties
 
         public int ID { get => _iD; }
+
         public ItemTypes ItemType { get; protected set;}
+
         public Sprite Icon { get => _icon; }
+
         public float Weight { get => _weight; }
+
         public Sprite GameSprite { get => _gameSprite; }
 
         #endregion

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using DeadmanRace.Components;
 using DeadmanRace.Items;
 using DeadmanRace.Models;
 
@@ -29,7 +28,7 @@ namespace DeadmanRace
 
         public void Initialize()
         {
-            var carData = Resources.Load<CarTemplate>("CarData/TestTemplate");
+            var carData = Data.CarData;
 
             if (carData == null) return;
 

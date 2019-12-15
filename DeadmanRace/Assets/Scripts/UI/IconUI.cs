@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace DeadmanRace.UI
 {
     public class IconUI : MonoBehaviour
@@ -16,6 +17,7 @@ namespace DeadmanRace.UI
         #region Properties
 
         public Sprite GetIcon { get => _icon.sprite; }
+
         public bool Enabled { get => _icon.enabled; set => _icon.enabled = value; }
 
         #endregion
@@ -36,7 +38,7 @@ namespace DeadmanRace.UI
 
             _icon.sprite = iconSprite;
 
-            _icon.enabled = true; ;
+            _icon.enabled = true;
         }
 
         public void Clear()

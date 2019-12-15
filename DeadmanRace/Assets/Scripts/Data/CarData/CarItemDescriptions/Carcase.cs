@@ -37,21 +37,21 @@ namespace DeadmanRace.Items
 
         public override void InstantiateObject(Transform parent, Vector3 position)
         {
-            var obj = new GameObject(name);
-            obj.transform.SetParent(parent);
+            var carObject = new GameObject(name);
+            carObject.transform.SetParent(parent);
 
-            var collider = obj.AddComponent<BoxCollider>(); 
+            var collider = carObject.AddComponent<BoxCollider>(); 
             collider.size = _hitboxSize;
             collider.center = position;
 
-            var spriteObj = new GameObject("Sprite");
-            spriteObj.transform.SetParent(obj.transform);
+            var spriteObj = new GameObject();
+            spriteObj.transform.SetParent(carObject.transform);
             spriteObj.transform.localEulerAngles = _spriteRotation;
             spriteObj.transform.localScale = _spriteScale;
             spriteObj.AddComponent<SpriteRenderer>().sprite = GameSprite;
 
-            if (!_createEmpty) obj.AddComponent<CarCarcase>().Initialize(this);
-            else obj.AddComponent<CarCarcase>().Initialize(ItemType);
+            if (!_createEmpty) carObject.AddComponent<CarCarcase>().Initialize(this);
+            else carObject.AddComponent<CarCarcase>().Initialize(ItemType);
         }
 
         #endregion
