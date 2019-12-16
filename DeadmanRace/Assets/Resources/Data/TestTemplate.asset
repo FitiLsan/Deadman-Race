@@ -22,16 +22,15 @@ MonoBehaviour:
   _fuelTankPosition: {x: 0, y: 0, z: -1.22}
   _fuelTankDescription: {fileID: 11400000, guid: 5eb2454d97488c64aa06810ee64cccf4,
     type: 2}
-  _wheelsPositions:
-  - {x: -1.49, y: -0.25, z: 1.32}
-  - {x: 1.49, y: -0.25, z: 1.32}
-  - {x: -1.72, y: -0.25, z: -1.37}
-  - {x: 1.72, y: -0.25, z: -1.37}
-  _wheelDescriptions:
-  - {fileID: 11400000, guid: 7c4a26266142a2746a3003703f87de6c, type: 2}
-  - {fileID: 11400000, guid: 7c4a26266142a2746a3003703f87de6c, type: 2}
-  - {fileID: 11400000, guid: 547c35c93e492864783e65af862d4b02, type: 2}
-  - {fileID: 11400000, guid: 547c35c93e492864783e65af862d4b02, type: 2}
+  _wheels:
+  - WheelPosition: {x: -1.49, y: -0.25, z: 1.32}
+    WheelDescription: {fileID: 11400000, guid: 7c4a26266142a2746a3003703f87de6c, type: 2}
+  - WheelPosition: {x: 1.49, y: -0.25, z: 1.32}
+    WheelDescription: {fileID: 11400000, guid: 7c4a26266142a2746a3003703f87de6c, type: 2}
+  - WheelPosition: {x: -1.72, y: -0.25, z: -1.37}
+    WheelDescription: {fileID: 11400000, guid: 547c35c93e492864783e65af862d4b02, type: 2}
+  - WheelPosition: {x: 1.72, y: -0.25, z: -1.37}
+    WheelDescription: {fileID: 11400000, guid: 547c35c93e492864783e65af862d4b02, type: 2}
   _generatorDescriptions: {fileID: 0}
   _electronics:
   - {fileID: 0}
