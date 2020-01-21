@@ -32,22 +32,18 @@ namespace DeadmanRace
 
         protected virtual Controllers Add(IController controller)
         {
-            switch (controller)
-            {
-                case ICleanupController cleanupController:
+            if (controller is ICleanupController cleanupController)
                     _cleanupSystems.Add(cleanupController);
-                    break;
-                case IExecuteController executeController:
-                    _executeSystems.Add(executeController);
-                    break;
-                case IInitializeController initializeController:
-                    _initializeSystems.Add(initializeController);
-                    break;
-                case ITearDownController tearDownController:
-                    _tearDownSystems.Add(tearDownController);
-                    break;
-            }
 
+            if (controller is IExecuteController executeController)
+                    _executeSystems.Add(executeController);
+
+            if (controller is IInitializeController initializeController)
+                    _initializeSystems.Add(initializeController);
+
+            if (controller is ITearDownController tearDownController)
+                    _tearDownSystems.Add(tearDownController);
+            
             return this;
         }
 

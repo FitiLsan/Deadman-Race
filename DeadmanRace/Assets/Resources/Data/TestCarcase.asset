@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789d540c1a690ad48be84d9a7555f544, type: 3}
+  m_Name: TestCarcase
+  m_EditorClassIdentifier: 
+  _iD: 0
+  _icon: {fileID: 21300000, guid: ab0226cd28d392f419078c390d24f898, type: 3}
+  _weight: 800
+  _gameSprite: {fileID: 21300000, guid: 6ea97b9a463e4b04bb052f0616740f3b, type: 3}
+  _createEmpty: 0
+  _hitboxSize: {x: 2.5, y: 1, z: 4}
+  _maxHealth: 0
+  _spriteScale: {x: 5, y: 6, z: 1}

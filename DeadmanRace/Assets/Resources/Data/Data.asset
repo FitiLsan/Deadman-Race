@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   _playerDataPath: PlayerData
+  _carDataPath: TestTemplate
