@@ -45,7 +45,11 @@ namespace DeadmanRace
 
             if (InCar)
             {
-                _context.MyCharacter.Transform.gameObject.SetActive(!InCar);
+                _context.MyCharacter.Transform.gameObject.SetActive(false);
+            }
+            else
+            {
+                _context.MyCharacter.Transform.gameObject.SetActive(true);
             }
 
             if (Input.GetKeyDown(KeyCode.I))
@@ -57,9 +61,13 @@ namespace DeadmanRace
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if(Physics.Raycast(_context.MyCharacter.Transform.position, _context.MyCharacter.Transform.forward))
+                if(Physics.Raycast(_context.MyCharacter.Transform.position, _context.MyCharacter.Transform.forward) && !InCar)
                 {
                     InCar = !InCar;
+                }
+                else if (InCar)
+                {
+                    InCar = false;
                 }
             }
         }

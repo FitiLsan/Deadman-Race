@@ -20,7 +20,6 @@ namespace DeadmanRace.Items
         #region Properties
 
         public float Capacity { get => _capacity; }
-
         public float MaxHealth { get => _maxHealth; }
 
         #endregion

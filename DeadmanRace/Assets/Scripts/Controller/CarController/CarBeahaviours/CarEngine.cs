@@ -9,7 +9,6 @@ namespace DeadmanRace.Components
         #region Properties
 
         public float CurentHealth { get; private set; }
-
         public float MaxHealth
         {
             get

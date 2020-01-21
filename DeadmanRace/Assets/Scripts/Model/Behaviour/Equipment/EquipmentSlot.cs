@@ -20,8 +20,8 @@ namespace DeadmanRace.Objects
         #region Properties
 
         public IItemDescription Item { get; private set; }
-
         public ItemTypes Type { get; private set; }
+        public bool IsEmpty { get; private set; } = true;
 
         public bool IsActive
         {
@@ -34,8 +34,6 @@ namespace DeadmanRace.Objects
                 else OnChange?.Invoke(Item, EquipmentEventTypes.SlotDisabled);
             }
         }
-
-        public bool IsEmpty { get; private set; } = true;
 
         #endregion
 

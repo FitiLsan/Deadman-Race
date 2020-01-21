@@ -9,11 +9,8 @@ namespace DeadmanRace.Components
         #region Properties
 
         public float CurentHealth { get; private set; }
-
         public float MaxHealth { get; private set; }
-
         public float CurentFuelValue { get; private set; }
-
         public FuelTypes CurentFuelType { get; private set; } = FuelTypes.Good;
 
         #endregion

@@ -35,7 +35,6 @@ namespace DeadmanRace.UI
         #region Properties
 
         public ItemTypes GetSlotType { get => _slotType; }
-
         public IEquipmentSlot Slot { get; private set; }
 
         #endregion
