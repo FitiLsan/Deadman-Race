@@ -29,7 +29,8 @@ namespace DeadmanRace
             var resources = Resources.Load<PlayerBehaviour>(AssetsPathGameObject.Object[GameObjectType.Character]);
             var playerData = Data.PlayerData;
             var obj = Object.FindObjectOfType<PlayerBehaviour>().transform;
-            MyCharacter character = new MyCharacter(obj, playerData);
+            //MyCharacter character = new MyCharacter(obj, playerData);
+            UnitMotor character = new UnitMotor(obj, playerData);
 
             _context.MyCharacter = character;
         }

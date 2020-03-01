@@ -216,14 +216,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf52242b3824af4f9b658895c708237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMargin: 1
-  yMargin: 1
-  xSmooth: 8
-  ySmooth: 8
-  maxXAndY: {x: -100, y: 100}
-  minXAndY: {x: -100, y: 100}
-  minCameraDist: 30
-  maxCameraDist: 50
+  XMargin: 1
+  YMargin: 1
+  XSmooth: 8
+  YSmooth: 8
+  MaxXAndY: {x: 0, y: 0}
+  MinXAndY: {x: 0, y: 0}
+  MinCameraDist: 30
+  MaxCameraDist: 50
   Player: {fileID: 1266747553}
   Car: {fileID: 0}
 --- !u!1001 &1266747550
@@ -292,6 +292,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696821106028781522, guid: 971848b7205c8214fa9f9c692157631b,
+        type: 3}
+      propertyPath: m_Mass
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 971848b7205c8214fa9f9c692157631b, type: 3}
