@@ -8,7 +8,7 @@ namespace DeadmanRace
     {
         #region Fields
 
-        public MyCharacter MyCharacter;
+        public IWalk MyCharacter;
         private readonly SortedList<TriggerObjectType, List<IOnTrigger>> _onTriggers;
         
         #endregion
