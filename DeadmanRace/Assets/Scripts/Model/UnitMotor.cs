@@ -1,17 +1,18 @@
 ﻿using DeadmanRace;
 using UnityEngine;
 
-public class UnitMotor : IWalk
+public sealed class UnitMotor : IWalk
 {
     private Transform _instance;
 
     // параметры движения
-    private float _maxSpeed = 200;
-    private float _curSpeed = 0;
-    private float _rotationSpeed = 0.5f;
-    private float _accelerationForce = 10;
-    private float _brakeForce = 100;
-    private float _clatch = 1;
+    private readonly float _maxSpeed = 200.0f;
+    private readonly float _rotationSpeed = 0.5f;
+    private readonly float _accelerationForce = 10.0f;
+    private readonly float _brakeForce = 100.0f;
+    private readonly float _clatch = 1.0f;
+    
+    private float _curSpeed = 0.0f;
 
     // входящие параметры направления и движения
     private float _hAxis;
