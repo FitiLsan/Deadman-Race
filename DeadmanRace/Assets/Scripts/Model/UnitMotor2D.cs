@@ -33,10 +33,10 @@ public sealed class UnitMotor2D : IWalk
 
     public Transform Transform { get; set; }
 
-    public void Walk(float hAxis, float vAxis)
+    public void Walk(float horizontalAxis, float verticalAxis)
     {
-        CharacterRotation(hAxis);
-        CharacterMove(hAxis, vAxis);
+        CharacterRotation(horizontalAxis);
+        CharacterMove(horizontalAxis, verticalAxis);
     }
 
     private void CharacterMove(float horizontalAxis, float verticalAxis)
