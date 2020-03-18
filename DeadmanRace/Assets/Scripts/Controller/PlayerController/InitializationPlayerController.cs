@@ -29,8 +29,21 @@ namespace DeadmanRace
             var resources = Resources.Load<PlayerBehaviour>(AssetsPathGameObject.Object[GameObjectType.Character]);
             var playerData = Data.PlayerData;
             var obj = Object.FindObjectOfType<PlayerBehaviour>().transform;
-            MyCharacter character = new MyCharacter(obj, playerData);
-
+            IWalk character;
+            //MyCharacter character = new MyCharacter(obj, playerData);
+            if (obj.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rgb))
+            {
+                character = new UnitMotor(obj, playerData);
+            }
+            else if (obj.gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rgb2d))
+            {
+                character = new UnitMotor2D(obj, playerData);
+            }
+            else
+            {
+                obj.gameObject.AddComponent<Rigidbody>();
+                character = new UnitMotor(obj, playerData);
+            }
             _context.MyCharacter = character;
         }
 
