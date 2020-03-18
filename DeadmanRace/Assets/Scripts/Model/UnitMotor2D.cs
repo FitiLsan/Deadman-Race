@@ -41,18 +41,13 @@ public sealed class UnitMotor2D : IWalk
 
     private void CharacterMove(float horizontalAxis, float verticalAxis)
     {
-        if (verticalAxis > 0.1f)
+        if (verticalAxis > 0.05f)
             _curSpeed += _accelerationForce * verticalAxis;
         else
-        {
-            CustomDebug.Log($"Iteration1: CurSpeed = {_curSpeed}");
             _curSpeed += -1 * (_brakeForce * 0.5f / _clatch) + (_brakeForce / _clatch) * verticalAxis;
-        CustomDebug.Log($"Iteration2: vAxis = {verticalAxis}, CurSpeed = {_curSpeed}, Brake speed = {-1 * (_brakeForce * 0.5f / _clatch) + (_brakeForce / _clatch) * verticalAxis}");
-            // CustomDebug.Log($"Iteration2: CurSpeed = {_curSpeed}");
-        }
+        //CustomDebug.Log($"Iteration1: CurSpeed = {_curSpeed}");
         if (_curSpeed > _maxSpeed * 0.98f) _curSpeed = _maxSpeed;
-        else if (_curSpeed < -1 * _maxSpeed * 0.98f) _curSpeed = -1 * _maxSpeed;
-        else if (Math.Abs(_curSpeed) < 0.05f * _maxSpeed) _curSpeed = 0.0f;
+        if (_curSpeed < 0.05f * _maxSpeed) _curSpeed = 0.0f;
         // CustomDebug.Log($"Iteration2: CurSpeed = {_curSpeed}");
         _rigidBody.AddForce(_instance.transform.up * _curSpeed);
     }
@@ -62,7 +57,7 @@ public sealed class UnitMotor2D : IWalk
         {
             if (_curSpeed < 0.1f * _maxSpeed)
                 _rigidBody.AddForce(_instance.transform.up * _rigidBody.mass * 6.0f);
-            _instance.rotation *= Quaternion.Euler(0.0f, 0.0f, horizontalAxis * _rotationSpeed);
+            _instance.rotation *= Quaternion.Euler(0.0f, 0.0f, -1 * horizontalAxis * _rotationSpeed);
             _instance.gameObject.transform.rotation = _instance.rotation;
         }
     }
